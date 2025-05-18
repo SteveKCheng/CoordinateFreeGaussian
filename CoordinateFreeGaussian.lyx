@@ -2473,6 +2473,12 @@ with the lower bound attained for all
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:conditional-expectation"
+
+\end_inset
+
 Application: expectation conditional on a linear transform
 \end_layout
 
@@ -2569,11 +2575,11 @@ noprefix "false"
 \begin_inset Formula $M$
 \end_inset
 
- being the range of the adjoint of 
+ to be the range of the adjoint of 
 \begin_inset Formula $A$
 \end_inset
 
-, not 
+, not of 
 \begin_inset Formula $A$
 \end_inset
 
@@ -2989,8 +2995,8 @@ cross-covariance
 \begin_inset Formula 
 \begin{alignat*}{1}
 \mathbb{E}[X\mid Y] & =\mathbb{E}X+C_{X,Y}\,C_{Y}^{-1}(Y-\mathbb{E}Y)\,.\\
-C_{Y}\colon W\to W & \quad\text{defined by}\:\langle u,C_{Y}u\rangle=\Var\langle u,Y\rangle\,.\\
-C_{X,Y}\colon W\to V & \quad\text{defined by}\:\text{\ensuremath{\langle v,C_{X,Y}u\rangle=\Cov\bigl[\langle v,X\rangle,\langle u,Y\rangle\bigr]}\,.}
+C_{Y}\colon W\to W & \quad\text{defined by}\:\langle w,C_{Y}w\rangle=\Var\langle w,Y\rangle\,.\\
+C_{X,Y}\colon W\to V & \quad\text{defined by}\:\text{\ensuremath{\langle v,C_{X,Y}w\rangle=\Cov\bigl[\langle v,X\rangle,\langle w,Y\rangle\bigr]}\,.}
 \end{alignat*}
 
 \end_inset
@@ -3232,6 +3238,726 @@ The lower bound is attained for all
 \end_inset
 
 , as claimed.
+\end_layout
+
+\begin_layout Section
+Application: Kalman filtering
+\end_layout
+
+\begin_layout Standard
+The 
+\emph on
+Kalman filter
+\emph default
+ iteratively estimates a sequence of random variables 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+,
+\begin_inset Formula $X_{2},\dotsc,$
+\end_inset
+
+ taking values in a real vector space, given a known affine recursive relation
+ between 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{j+1}$
+\end_inset
+
+, along with a separate sequence of observations 
+\begin_inset Formula $Y_{1},Y_{2},\dotsc$
+\end_inset
+
+ whose individual elements 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ are linearly derived from the corresponding 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+.
+ The random variables 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ are interpreted as representing the hidden state of some system at times
+ 
+\begin_inset Formula $j=1,2,\dotsc$
+\end_inset
+
+.
+ We can only observe some transformation or projection 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ and must try to find out what the realizations 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ are.
+ At the same time, the evolution of both 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ are subject to random 
+\begin_inset Quotes eld
+\end_inset
+
+noise
+\begin_inset Quotes erd
+\end_inset
+
+ which may be modelled as Gaussian.
+\end_layout
+
+\begin_layout Standard
+Let us begin by establishing the mathematical notation more precisely.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $X_{1},X_{2},\dotsc$
+\end_inset
+
+ be random variables taking values in a finite-dimensional inner product
+ space 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ These represent the 
+\emph on
+hidden state
+\emph default
+ of the system.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $X_{0}=x_{0}\in V$
+\end_inset
+
+ be some known or assumed initial state of the system.
+ 
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ evolve according to:
+\begin_inset Formula 
+\[
+X_{j}=\Psi_{j}X_{j-1}+\mu_{j}+\delta_{j}\,,\quad j=1,2,\dotsc,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Psi_{j}\colon V\to V$
+\end_inset
+
+ is a known linear operator, 
+\begin_inset Formula $\mu_{j}\in V$
+\end_inset
+
+ is a known perturbation or introduced force on the system, and 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ is 
+\begin_inset Formula $V$
+\end_inset
+
+-valued Gaussian noise with zero mean and known variance operator 
+\begin_inset Formula $Q_{j}\colon V\to V$
+\end_inset
+
+.
+ The random variables 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ model the 
+\emph on
+deviation or noise in the underlying processes
+\emph default
+ driving 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+.
+ The transformation 
+\begin_inset Formula $\Psi_{j}$
+\end_inset
+
+ models how the hidden state evolves as time goes by.
+ 
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ be random variables taking values in a finite-dimensional inner product
+ space 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ They represent the 
+\emph on
+observed state
+\emph default
+ of the system.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ are defined by:
+\begin_inset Formula 
+\[
+Y_{j}=A_{j}X_{j}+\varepsilon_{j}\,,
+\]
+
+\end_inset
+
+for known linear transformations 
+\begin_inset Formula $A_{j}\colon V\to W$
+\end_inset
+
+, and 
+\begin_inset Formula $W$
+\end_inset
+
+-valued Gaussian noise 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ with zero mean and known variance operator 
+\begin_inset Formula $R_{j}\colon W\to W$
+\end_inset
+
+.
+ The random variables 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ model the 
+\emph on
+error or noise in observing or measuring
+\emph default
+ the state of the system.
+\end_layout
+
+\begin_layout Itemize
+To concisely refer to what is known about the system at time 
+\begin_inset Formula $j$
+\end_inset
+
+, we define 
+\begin_inset Formula $\mathcal{F}_{j}$
+\end_inset
+
+ to be the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by 
+\begin_inset Formula $Y_{1},\dotsc,Y_{j}$
+\end_inset
+
+ .
+ For 
+\begin_inset Formula $\mathcal{F}_{0}$
+\end_inset
+
+, set it to the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra consisting only of 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ and its complement, representing the trivial information known at the start.
+ These 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebras are increasing with time: 
+\begin_inset Formula $\mathcal{F}_{0}\subset\mathcal{F}_{1}\subset\mathcal{F}_{2}\subset\dotsb$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The random noises 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ shall be mutually independent.
+ Thus, in particular 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ are independent of 
+\begin_inset Formula $\mathcal{F}_{j-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To give a concrete example, Kalman filtering might be applied in 
+\emph on
+navigation by dead-reckoning
+\emph default
+.
+ Imagine we have a vehicle we must navigate.
+ We know our spatial position & velocity 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ at the start, but must continually estimate our position & velocity 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ as we make navigational inputs 
+\begin_inset Formula $\mu_{j}$
+\end_inset
+
+(causing accelerations of the vehicle), while we might only be able to observe
+ our current velocity 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ (so 
+\begin_inset Formula $A_{j}$
+\end_inset
+
+ is a projection of 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ that drops the component of absolute position).
+ The random variables 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ represent error or deviations in physically controlling the vehicle or
+ other unaccounted forces (e.g.
+ friction) acting on the vehicle, while 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ represent measurement error of the velocity of the vehicle.
+\end_layout
+
+\begin_layout Standard
+We note that the Kalman filter can be generalized slightly, to allow the
+ perturbations 
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ to be random and for 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ to incorporate random/affine perturbations as well.
+ If their randomness can be resolved by 
+\begin_inset Formula $\mathcal{F}_{j}$
+\end_inset
+
+ at time 
+\begin_inset Formula $j$
+\end_inset
+
+, we can treat them as known (and subtract its contribution to 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+) without changing anything else.
+ So for notational simplicity we will not discuss or follow this generalization
+ further.
+ 
+\end_layout
+
+\begin_layout Standard
+We are now ready to derive the formulas for the Kalman filter.
+ Under our more abstract presentation of the mathematics, we aim to explicitly
+ display the conditional expectation
+\begin_inset Formula 
+\[
+\widehat{X}_{j}=\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j}\bigr]\,,\quad j=1,2,\dotsc,
+\]
+
+\end_inset
+
+the derivation turns out to be a straightforward, if notationally-heavy,
+ application of the results of §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:conditional-expectation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We expand:
+\begin_inset Formula 
+\[
+\widehat{X}_{j}=\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j}\bigr]=\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]+C_{XY,j}C_{Yj}^{-1}\,\bigl(Y_{j}-\mathbb{E}\bigl[Y_{j}\mid\mathcal{F}_{j-1}\bigr]\bigr)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{Y,j}\colon W\to W$
+\end_inset
+
+ being the variance operator of 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ conditional on 
+\begin_inset Formula $\mathcal{F}_{j-1}$
+\end_inset
+
+, defined on test vectors 
+\begin_inset Formula $w\in W$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+\langle w,C_{Y,j}w\rangle=\Var\bigl[\langle w,Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\,;\text{and}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{XY,j}\colon W\to V$
+\end_inset
+
+ being the covariance homomorphism of 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ versus 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ conditional on 
+\begin_inset Formula $\mathcal{F}_{j-1}$
+\end_inset
+
+, defined on test vectors 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $w\in W$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\langle v,C_{XY,j}w\rangle=\Cov\bigl[\langle v,X_{j}\rangle,\langle w,Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\widehat{X}_{j} & =\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]+C_{XY,j}C_{Y,j}^{-1}\,\bigl(Y_{j}-\mathbb{E}\bigl[A_{j}X_{j}+\varepsilon_{j}\mid\mathcal{F}_{j-1}\bigr]\bigr)\\
+ & =\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]+C_{XY,j}C_{Y,j}^{-1}\,\bigl(Y_{j}-A_{j}\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]\bigr)\\
+ & =\bigl(I-C_{XY,j}C_{Y,j}^{-1}T_{j}\bigr)\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]+C_{XY,j}C_{Y,j}^{-1}Y_{j}\\
+ & =\bigl(I-C_{XY,j}C_{Y,j}^{-1}T_{j}\bigr)\mathbb{E}\bigl[\Psi_{j}X_{j-1}+\mu_{j}+\delta_{j}\mid\mathcal{F}_{j-1}\bigr]+C_{XY,j}C_{Y,j}^{-1}Y_{j}\\
+ & =\bigl(I-C_{XY,j}C_{Y,j}^{-1}T_{j}\bigr)\bigl(\Psi_{j}\widehat{X}_{j-1}+\mu_{j}\bigr)+C_{XY,j}C_{Y,j}^{-1}Y_{j}\,.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\langle w,C_{Y,j}w\rangle & =\Var\bigl[\langle w,Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\nonumber \\
+ & =\Var\bigl[\langle w,A_{j}X_{j}+\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\nonumber \\
+ & =\Var\bigl[\langle w,A_{j}X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Var\bigl[\langle w,\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\,.\label{eq:kalman-cond-variance-obs}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last term on eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-obs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is easy to recognize.
+ 
+\begin_inset Formula $\Var\bigl[\langle w,\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]$
+\end_inset
+
+ is the same as 
+\begin_inset Formula $\Var\langle w,\varepsilon_{j}\rangle$
+\end_inset
+
+ which is, by definition, the variance of 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+ evaluated (as a quadratic form) at test vector 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ Expressed in terms of the variance operator 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{equation}
+\Var\bigl[\langle w,\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]=\Var\langle w,\varepsilon_{j}\rangle=\langle w,R_{j}w\rangle\,.\label{eq:kalman-cond-variance-obs-error}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first term on eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-obs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ requires expanding 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ by its recurrence relation with 
+\begin_inset Formula $X_{j-1}$
+\end_inset
+
+ like with the conditional expectation:
+\begin_inset Formula 
+\begin{align*}
+\Var\bigl[\langle w,A_{j}X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr] & =\Var\bigl[\langle w,A_{j}(\Psi_{j}X_{j-1}+\mu_{j}+\delta_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\Var\bigl[\langle w,A_{j}\Psi_{j}X_{j-1}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Var\bigl[\langle w,A_{j}\delta_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\,.
+\end{align*}
+
+\end_inset
+
+The last term above may be recognized as analogous to 
+\begin_inset Formula $\Var\bigl[\langle w,\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]$
+\end_inset
+
+ just earlier, but with 
+\begin_inset Formula $A_{j}\delta_{j}$
+\end_inset
+
+ replacing 
+\begin_inset Formula $\varepsilon_{j}$
+\end_inset
+
+; it is obviously related to the variance operator 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, our insistence in this document on only passing scalar arguments
+ to 
+\begin_inset Formula $\Var[\cdot]$
+\end_inset
+
+ obscures the simple concept behind the last equation: what happens to the
+ variance (operator) of a vector-valued random variable after applying linear
+ transformations.
+ We already know the answer from §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:linear-transformations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ — compose the original variance operator on the left by the transformation,
+ and on the right by its adjoint — and do not need to repeat the derivations
+ in detail.
+ 
+\end_layout
+
+\begin_layout Standard
+Cutting to the chase we obtain:
+\begin_inset Formula 
+\begin{align*}
+\Var\bigl[\langle w,A_{j}X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr] & =\langle w,(A_{j}\Psi_{j}S_{j-1}\Psi_{j}^{*}A_{j}+A_{j}Q_{j}A_{j}^{*})w\rangle,\\
+ & =\langle w,A_{j}(\Psi_{j}S_{j-1}\Psi_{j}^{*}+Q_{j})A_{j}^{*}w\rangle\,,
+\end{align*}
+
+\end_inset
+
+where we now introduce a compact notation for the conditional variance of
+ the hidden state.
+ The (conditional variance) operator 
+\begin_inset Formula $S_{j}\colon V\to V$
+\end_inset
+
+ shall be defined by: 
+\begin_inset Formula 
+\[
+\langle v,S_{j}v\rangle=\Var\bigl[\langle v,X_{j}\rangle\mid\mathcal{F}_{j}\bigr]\,,\quad v\in V\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Putting the above with eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-obs-error"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we arrive at this expression for the conditional variance of 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+C_{Y,j}=A_{j}(\Psi_{j}S_{j-1}\Psi_{j}^{*}+Q_{j})A_{j}^{*}+R_{j}\,.
+\]
+
+\end_inset
+
+The operator 
+\begin_inset Formula $\Psi_{j}S_{j-1}\Psi_{j}^{*}+Q_{j}\colon V\to V$
+\end_inset
+
+ exactly represents the variance of 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ conditional on 
+\begin_inset Formula $\mathcal{F}_{j-1}$
+\end_inset
+
+, i.e.
+ letting 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ evolve from 
+\begin_inset Formula $X_{j-1}$
+\end_inset
+
+ according to the established law but without having observed 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+ yet.
+\end_layout
+
+\begin_layout Standard
+Next we attack the covariance homomorphism 
+\begin_inset Formula $C_{XY,j}\colon W\to V$
+\end_inset
+
+, which turns out to be very easy:
+\begin_inset Formula 
+\begin{align*}
+\langle v,C_{XY,j}w\rangle & =\Cov\bigl[\langle v,X_{j}\rangle,\langle w,Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\Cov\bigl[\langle v,X_{j}\rangle,\langle w,A_{j}X_{j}+\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\Cov\bigl[\langle v,X_{j}\rangle,\langle w,A_{j}X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Cov\bigl[\langle v,X_{j}\rangle,\langle w,\varepsilon_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\Cov\bigl[\langle v,X_{j}\rangle,\langle A_{j}^{*}w,X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]+0\\
+ & =\langle v,\widehat{S}_{j}A_{j}^{*}w\rangle\,.
+\end{align*}
+
+\end_inset
+
+Therefore
+\begin_inset Formula 
+\[
+C_{XY,j}=\widehat{S}_{j}A_{j}^{*}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
