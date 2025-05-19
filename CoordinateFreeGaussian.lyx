@@ -4609,6 +4609,28 @@ Linear Algebra.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Kolmogorov"
+key "Kolmogorov"
+literal "false"
+
+\end_inset
+
+A.
+ N.
+ Kolmogorov.
+ Trans.
+ Nathan Morrison.
+ 
+\emph on
+Foundations of the Theory of Probability
+\emph default
+.
+ Chelsea, 1956.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Rohatgi"
 key "Rohatgi"
 literal "false"
@@ -4627,6 +4649,25 @@ An Introduction to Probability and Statistics.
 \emph default
 .
  Prentice Hall, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rosenthal"
+key "Rosenthal"
+literal "false"
+
+\end_inset
+
+Jeffrey S.
+ Rosenthal.
+ 
+\emph on
+A First Look at Rigorous Probability Theory
+\emph default
+.
+ World Scientific, 2003.
 \end_layout
 
 \begin_layout Bibliography
