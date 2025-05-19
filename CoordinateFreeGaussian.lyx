@@ -368,8 +368,12 @@ The
 \emph on
 covariance
 \emph default
- of a random variable 
-\begin_inset Formula $Z$
+ of two random variables 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
 \end_inset
 
  taking values in 
@@ -379,19 +383,47 @@ covariance
  is defined to be the symmetric bilinear form:
 \begin_inset Formula 
 \[
-\mathcal{C}(u,v)=\Cov\bigl[\langle u,Z\rangle,\langle v,Z\rangle\bigr]\,,\quad u,v\in V\,.
+\mathcal{C}_{XY}(u,v)=\Cov\bigl[\langle u,X\rangle,\langle v,Y\rangle\bigr]\,,\quad u,v\in V\,.
 \]
 
 \end_inset
 
+This bilinear form returns the covariance of two scalar-valued variables
+ 
+\begin_inset Formula $\langle u,X\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle v,Y\rangle$
+\end_inset
+
+.
+ Thus it encapsulates the same data as a covariance matrix in the usual
+ non-coordinate-free approach to vector-valued random variables.
+\end_layout
+
+\begin_layout Standard
 The 
 \emph on
 variance
 \emph default
- is the corresponding quadratic form:
+ of a random variable 
+\begin_inset Formula $Z$
+\end_inset
+
+ is, of course, the covariance of 
+\begin_inset Formula $Z$
+\end_inset
+
+ versus 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ It may sometimes be re-cast as a quadratic form with no additional comment:
 \begin_inset Formula 
 \[
-\mathcal{C}(u)=\mathcal{C}(u,u)=\Var\bigl[\langle u,Z\rangle\bigr]\,,\quad u\in V\,.
+\mathcal{C}(u)=\mathcal{C}_{ZZ}(u,u)=\Var\bigl[\langle u,Z\rangle\bigr]\,,\quad u\in V\,.
 \]
 
 \end_inset
@@ -400,8 +432,377 @@ variance
 \end_layout
 
 \begin_layout Standard
-Given 
+The bi-linear and quadratic forms make explicit the 
+\begin_inset Quotes eld
+\end_inset
+
+quadratic
+\begin_inset Quotes erd
+\end_inset
+
+ nature of the concepts of covariance and variance.
+\end_layout
+
+\begin_layout Standard
+We have more related definitions.
+ By the natural isomorphism between 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $V^{*}$
+\end_inset
+
+, there exists a vector 
+\begin_inset Formula $Cv$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mathcal{C}_{XY}(u,v)=\langle u,Cv\rangle\,.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\mathcal{C}_{XY}(u,v)$
+\end_inset
+
+ is linear in 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $Cv$
+\end_inset
+
+ is also linear in 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ So, there always exists a linear operator 
+\begin_inset Formula $C\colon V\to V$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\Cov\bigl[\langle u,X\rangle,\langle v,Y\rangle\bigr]=\langle u,Cv\rangle\,.
+\]
+
+\end_inset
+
+We call this 
+\begin_inset Formula $C$
+\end_inset
+
+ the 
+\emph on
+covariance operator
+\emph default
+; its matrix representation under the standard basis of 
+\begin_inset Formula $V$
+\end_inset
+
+ is the usual 
+\begin_inset Quotes eld
+\end_inset
+
+covariance matrix
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the case that 
+\begin_inset Formula $X=Y=Z$
+\end_inset
+
+ is the same random variable, 
+\begin_inset Formula $C$
+\end_inset
+
+ is also called the 
+\emph on
+variance operator 
+\emph default
+or 
+\emph on
+dispersion operator
+\emph default
+.
+ Since 
+\begin_inset Formula $\mathcal{C}_{ZZ}(u,v)$
+\end_inset
+
+ is symmetric in 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+, the variance operator is self-adjoint: 
+\begin_inset Formula $C^{*}=C$
+\end_inset
+
+, where 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ denotes the adjoint of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Also, 
+\begin_inset Formula $C$
+\end_inset
+
+ is positive semi-definite, for 
+\begin_inset Formula $\mathcal{C}_{ZZ}(u,u)\geq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $u\in V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In matrix notation, the adjoint is realized as the transpose operation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Only when using an orthonormal basis, and the vector space is real, not
+ complex.
+\end_layout
+
+\end_inset
+
+, but we will consistently refer to adjoints instead of transposes in this
+ article, because we will be making extensive use of theory from linear
+ algebra, that under a more general context applies to adjoints only but
+ not the plain old transpose.
+\end_layout
+
+\begin_layout Standard
+There is some ambiguity in the terminology, in particular as it relates
+ to the matrix representations.
+ One rarely hears the term 
+\begin_inset Quotes eld
+\end_inset
+
+variance matrix
+\begin_inset Quotes erd
+\end_inset
+
+ to refer to the matrix representation of the variance operator, since the
+ matrix still contains entries for the covariances of individual components
+ of 
+\begin_inset Formula $Z$
+\end_inset
+
+ against each other.
+ Instead it is usually referred to as a 
+\begin_inset Quotes eld
+\end_inset
+
+covariance matrix
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+variance-covariance matrix
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In the coordinate-free setting, the covariance of the components are considered
+ part of the data for the variance/dispersion of a vector-valued random
+ variable.
+\end_layout
+
+\begin_layout Standard
+We make another comment on notation.
+ Many other texts will freely apply the notations 
+\begin_inset Formula $\Cov$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var$
+\end_inset
+
+ on vector-valued random variables directly, writing:
+\begin_inset Formula 
+\[
+\Cov(X,Y)\,,\quad\Var(Z)\,.
+\]
+
+\end_inset
+
+We will 
+\emph on
+not
+\emph default
+ do so in this article, not only to avoid ambiguity, but also because the
+ laws on manipulating vector-valued 
+\begin_inset Formula $\Cov$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var$
+\end_inset
+
+ are not clear
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The rules may be clear to the experts, but perhaps not to the student whom
+ the text is intended for!
+\end_layout
+
+\end_inset
+
+ at this point.
+ We write 
+\begin_inset Formula $\Cov$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var$
+\end_inset
+
+ only for scalar arguments — in particular, always using the inner product
+ to intermediate vector-valued random variables appearing inside 
+\begin_inset Formula $\Cov$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var$
+\end_inset
+
+.
+ We do allow vector-valued expectations 
+\begin_inset Formula $\mathbb{E}$
+\end_inset
+
+ however, since it is easily defined (component-wise), and its laws as a
+ linear operation are clear.
+\end_layout
+
+\begin_layout Standard
+Finally, with regards to covariance, we will occasionally require 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ to have distinct co-domains, say vector spaces 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ The coordinate-free definition of covariance is easily re-cast to such
+ situations: the inner product on 
+\begin_inset Formula $X$
+\end_inset
+
+ and the inner product on 
+\begin_inset Formula $Y$
+\end_inset
+
+, appearing as arguments to 
+\begin_inset Formula $\Cov$
+\end_inset
+
+, will just work on 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ respectively.
+ However, the corresponding concept of the covariance operator 
+\begin_inset Formula $C$
+\end_inset
+
+ needs a small tweak: it obviously becomes a linear transformation 
+\begin_inset Formula $C:W\to V$
+\end_inset
+
+.
+ Since the term 
+\begin_inset Quotes eld
+\end_inset
+
+(linear) operator
+\begin_inset Quotes erd
+\end_inset
+
+ usually refers to a transformation with the co-domain being the same as
+ the domain, we might call 
+\begin_inset Formula $C:W\to V$
+\end_inset
+
+ instead a 
+\emph on
+covariance homomorphism
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size normal
+\emph on
+Homomorphism
+\emph default
+ in the context of linear vector spaces means a linear transformation.
+ For reference, the term 
+\emph on
+endomorphism
+\emph default
+ is sometimes heard to refer to a linear operator
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Induced inner product from the variance operator
+\end_layout
+
+\begin_layout Standard
+Given the variance 
 \begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ of a Gaussian random variable 
+\begin_inset Formula $Z$
 \end_inset
 
 , we may derive the exact form of the characteristic function of 
@@ -499,128 +900,26 @@ f_{Z}(\xi) & =\mathbb{E}\bigl[\exp(i\langle\xi,Z-z_{0}+z_{0}\rangle)\bigr]=\exp\
 
 \end_layout
 
-\begin_layout Section
-Covariance operator and its induced inner product
-\end_layout
-
 \begin_layout Standard
-By the natural isomorphism between 
-\begin_inset Formula $V$
-\end_inset
-
- and 
-\begin_inset Formula $V^{*}$
-\end_inset
-
-, there exists a vector 
-\begin_inset Formula $Cv$
-\end_inset
-
- such that
-\begin_inset Formula 
-\[
-\mathcal{C}(u,v)=\langle u,Cv\rangle\,.
-\]
-
-\end_inset
-
-Since 
-\begin_inset Formula $\mathcal{C}(u,v)$
-\end_inset
-
- is linear in 
-\begin_inset Formula $v$
-\end_inset
-
-, 
-\begin_inset Formula $Cv$
-\end_inset
-
- is also linear in 
-\begin_inset Formula $v$
-\end_inset
-
-.
- Thus there exists a linear operator 
-\begin_inset Formula $C\colon V\to V$
-\end_inset
-
- such that
-\begin_inset Formula 
-\[
-\Cov\bigl[\langle u,Z\rangle,\langle v,Z\rangle\bigr]=\langle u,Cv\rangle\,.
-\]
-
-\end_inset
-
-Since the left quantity is symmetric in 
-\begin_inset Formula $u$
-\end_inset
-
- and 
-\begin_inset Formula $v$
-\end_inset
-
-, the linear operator 
+In the preceding section, we remarked that the variance operator 
 \begin_inset Formula $C$
 \end_inset
 
- must be self-adjoint.
- It is also positive semi-definite, because 
-\begin_inset Formula $\mathcal{C}(u,u)\geq0$
+ corresponding to 
+\begin_inset Formula $\mathcal{C}$
 \end_inset
 
- for all 
-\begin_inset Formula $u\in V$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-We call 
-\begin_inset Formula $C$
-\end_inset
-
- the 
-\emph on
-covariance operator
-\emph default
-; its matrix representation under the standard basis of 
-\begin_inset Formula $V$
-\end_inset
-
- is the usual 
-\begin_inset Quotes eld
-\end_inset
-
-covariance matrix
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Consequently, the characteristic function of 
-\begin_inset Formula $Z$
-\end_inset
-
- may be re-written as:
+ is self-adjoint and positive semi-definite.
+ These properties let us define:
 \begin_inset Formula 
 \[
-f_{Z}(\xi)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\langle\xi,C\xi\rangle\bigr)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\left\Vert \xi\right\Vert _{C}^{2}\bigr)\,.
+\lVert\xi\rVert_{C}=\sqrt{\langle\xi,C\xi\rangle}\,,\quad\xi\in V\,,
 \]
 
 \end_inset
 
-The function 
-\begin_inset Formula $\xi\mapsto\sqrt{\langle\xi,C\xi\rangle}$
-\end_inset
-
- is a semi-norm which we may denote by 
-\begin_inset Formula $\lVert\cdot\rVert_{C}$
+as a semi-norm on 
+\begin_inset Formula $V$
 \end_inset
 
 , determined by the 
@@ -640,7 +939,23 @@ covariance structure
 \end_inset
 
 .
- 
+ With this semi-norm 
+\begin_inset Formula $\lVert\cdot\rVert_{C}$
+\end_inset
+
+, the characteristic function of 
+\begin_inset Formula $Z$
+\end_inset
+
+ may be re-written as:
+\begin_inset Formula 
+\[
+f_{Z}(\xi)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\langle\xi,C\xi\rangle\bigr)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\left\Vert \xi\right\Vert _{C}^{2}\bigr)\,.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -715,7 +1030,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Evidently, the covariance operator of 
+Evidently, the variance operator of 
 \begin_inset Formula $LZ$
 \end_inset
 
@@ -1005,7 +1320,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We start with a technical set up in case the covariance operator 
+We start with a technical set up in case the variance operator 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1766,8 +2081,8 @@ We take
 \begin_inset Formula $V$
 \end_inset
 
--valued Gaussian random variable with zero mean, and with non-singular covarianc
-e operator 
+-valued Gaussian random variable with zero mean, and with non-singular variance
+ operator 
 \begin_inset Formula $C\colon V\to V$
 \end_inset
 
@@ -2320,7 +2635,7 @@ noprefix "false"
 \begin_inset Formula $X$
 \end_inset
 
- may have a non-trivial covariance operator 
+ may have a non-trivial variance operator 
 \begin_inset Formula $C$
 \end_inset
 
@@ -2691,7 +3006,7 @@ This formula is easier to remember if we observe that
 \begin_inset Formula $ACA^{*}$
 \end_inset
 
- is the covariance operator of 
+ is the variance operator of 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -2699,19 +3014,7 @@ This formula is easier to remember if we observe that
 \begin_inset Formula $CA^{*}$
 \end_inset
 
- is the 
-\begin_inset Quotes eld
-\end_inset
-
-
-\emph on
-cross-covariance
-\emph default
-
-\begin_inset Quotes erd
-\end_inset
-
- map of 
+ is the covariance homomorphism of 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -4049,12 +4352,23 @@ C_{XY,j}=\widehat{S}_{j}A_{j}^{*}.\label{eq:kalman-covariance}
 
 \begin_layout Standard
 To complete the specification of the Kalman filter as an algorithm, we must
- have a formula for the conditional variance 
+ have a formula for 
 \begin_inset Formula $S_{j}$
 \end_inset
 
+, which represents the conditional variance of the hidden state 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ given the observations known so far, up to time 
+\begin_inset Formula $j$
+\end_inset
+
 .
- As one might expect, it can be computed recursively.
+\end_layout
+
+\begin_layout Standard
+As one might expect, it can be computed recursively.
  Actually, we have essentially computed it in §
 \begin_inset CommandInset ref
 LatexCommand ref
