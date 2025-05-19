@@ -84,12 +84,121 @@
 Coordinate-free characterization of the multi-variate Gaussian distribution
 \end_layout
 
+\begin_layout Author
+Steve Cheng
+\end_layout
+
 \begin_layout Section
 Introduction
 \end_layout
 
 \begin_layout Standard
-This short piece 
+This article introduces the theory of the multi-variate Gaussian (normal)
+ probability distribution.
+ In contrast to most textbooks
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wichura"
+literal "false"
+
+\end_inset
+
+ is a wonderful exception that has inspired this work.
+\end_layout
+
+\end_inset
+
+ on probability and statistics (elementary or not), we strive to work in
+ a coordinate-free manner, using the full power of modern linear algebra.
+ 
+\end_layout
+
+\begin_layout Standard
+In my own past experience as a university student, linear algebra presented
+ as a theory of vector spaces gets introduced early in the curriculum for
+ a mathematics major — starting in the first year, finishing in the second
+ year of undergraduate study at the latest — yet the teaching of the application
+s (e.g.
+ physics, statistics) is usually geared to other students not majoring in
+ mathematics, and so do not use the more abstract theory of vector spaces,
+ preferring to work with (list) vectors and matrices.
+ 
+\end_layout
+
+\begin_layout Standard
+I have always found that dissatisfying — and partly for that reason had
+ learned a lot of statistics for a long time by re-deriving key results
+ myself.
+ Nowadays, I would argue that even in applications, the geometric perspective
+ underlying vector-space theory is enormously helpful in reasoning through
+ situations more complicated than in the toy problems of textbooks.
+ Without a rigorous theory, geometric intuition might just be figments of
+ the mind that occasionally lead us to mistakes.
+ And, when we want to compute results, invariably programming a computer
+ to do so, I think it is often helpful to thoroughly understand the meanings
+ of quantities we want to compute, derive any needed analytics in the most
+ generic form as is possible and practical — thus helping with code re-use
+ — 
+\emph on
+before
+\emph default
+ assigning coordinates and indices to work with the vector and matrix representa
+tions of those quantities.
+\end_layout
+
+\begin_layout Standard
+This is an article I wish I could have read when I was an undergraduate.
+ Not only because the applications are explained with more elegant techniques
+ (in my not-so-humble opinion), but also it might help to impart intuition
+ behind concepts like adjoints (from linear algebra), or the connection
+ between orthogonality (in certain inner product spaces) and stochastic
+ independence — which often go under-explained in pure-mathematics textbooks
+ too.
+\end_layout
+
+\begin_layout Standard
+Besides linear algebra, the background needed to read this article include
+ some basic single-variable calculus, and elementary knowledge of probability
+ theory.
+ Unfortunately, strictly speaking, 
+\begin_inset Quotes eld
+\end_inset
+
+elementary
+\begin_inset Quotes erd
+\end_inset
+
+ probability theory is not enough, as we depend on certain well-known fundamenta
+l facts, like the unique association of probability measures with their
+ characteristic functions, that require serious learning of real analysis
+ and the Kolmogorov axiomatization of probability theory
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+A rapid yet rigorous development can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rosenthal"
+literal "false"
+
+\end_inset
+
+, which should be approachable by an undergraduate who has studied rigorous
+ calculus.
+\end_layout
+
+\end_inset
+
+ before they can really be established and understood.
+ The reader without this knowledge will just have to treat such facts as
+ given — but should still be able to follow the prose and algebraic manipulation
+s.
+ 
 \end_layout
 
 \begin_layout Section
