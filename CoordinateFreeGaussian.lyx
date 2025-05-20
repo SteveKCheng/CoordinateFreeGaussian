@@ -4757,6 +4757,21 @@ Foundations of the Theory of Probability
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Øksendal"
+key "Oksendal"
+literal "false"
+
+\end_inset
+
+Bernt Øksendal.
+ Stochastic Differential Equations: An Introduction with Applications.
+ Fifth Edition, Corrected Printing.
+ Springer-Verlag, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Rohatgi"
 key "Rohatgi"
 literal "false"
