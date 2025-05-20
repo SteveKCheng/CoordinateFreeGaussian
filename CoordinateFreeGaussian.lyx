@@ -138,8 +138,8 @@ In my own past experience as a university student, linear algebra presented
  year of undergraduate study at the latest — yet the teaching of the application
 s (e.g.
  physics, statistics) is usually geared to other students not majoring in
- mathematics, and so do not use the more abstract theory of vector spaces,
- preferring to work with (list) vectors and matrices.
+ mathematics, and so do not use the more abstract theory, preferring to
+ work with (list) vectors and matrices.
  
 \end_layout
 
@@ -148,20 +148,20 @@ I have always found that dissatisfying — and partly for that reason had
  learned a lot of statistics for a long time by re-deriving key results
  myself.
  Nowadays, I would argue that even in applications, the geometric perspective
- underlying vector-space theory is enormously helpful in reasoning through
- situations more complicated than in the toy problems of textbooks.
+ underlying vector-space theory is indispensable, in reasoning through situation
+s more complicated than the toy problems of textbooks.
  Without a rigorous theory, geometric intuition might just be figments of
  the mind that occasionally lead us to mistakes.
  And, when we want to compute results, invariably programming a computer
- to do so, I think it is often helpful to thoroughly understand the meanings
- of quantities we want to compute, derive any needed analytics in the most
+ to do so, I think it is useful to understand at a deep level the meanings
+ of quantities we want to compute, and to derive the analytics in the most
  generic form as is possible and practical — thus helping with code re-use
  — 
 \emph on
 before
 \emph default
- assigning coordinates and indices to work with the vector and matrix representa
-tions of those quantities.
+ assigning coordinates and indices to work with the ultimate vector and
+ matrix representations.
 \end_layout
 
 \begin_layout Standard
@@ -176,7 +176,7 @@ This is an article I wish I could have read when I was an undergraduate.
 
 \begin_layout Standard
 Besides linear algebra, the background needed to read this article include
- some basic single-variable calculus, and elementary knowledge of probability
+ basic single-variable calculus, and elementary knowledge of probability
  theory.
  Unfortunately, strictly speaking, 
 \begin_inset Quotes eld
@@ -208,7 +208,7 @@ literal "false"
 
 \end_inset
 
- before they can really be established and understood.
+ for their development.
  The reader without this knowledge will just have to treat such facts as
  given — but should still be able to follow the prose and algebraic manipulation
 s.
@@ -371,7 +371,7 @@ Having a mean of
  But in applications we often just want to specify a random variable to
  follow a Gaussian law with some variance/covariance.
  It is awkward to be forced to think that any desired random variable must
- be driven by some standard Gaussian every time, imagined to be constructed
+ be driven by some standard Gaussian every time, supposedly constructed
  inside whatever the probability space is at hand.
 \end_layout
 
@@ -898,6 +898,10 @@ f_{Z}(\xi)=\mathbb{E}\bigl[\exp(i\langle\xi,Z\rangle)\bigr]\,,\quad\xi\in\mathbb
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 First assume 
 \begin_inset Formula $\mathbb{E}[Z]=0$
 \end_inset
@@ -948,7 +952,7 @@ In particular set
 \begin_inset Formula $u=\xi$
 \end_inset
 
-, and we obtain:
+, and we obtain this formula for the characteristic function:
 \begin_inset Formula 
 \[
 f_{Z}(\xi)=\exp\bigl(-\tfrac{1}{2}\mathcal{C}(\xi)\bigr)\,.
@@ -964,7 +968,7 @@ If
 \begin_inset Formula $Z-z_{0}$
 \end_inset
 
- shows:
+ reveals:
 \begin_inset Formula 
 \begin{align*}
 f_{Z}(\xi) & =\mathbb{E}\bigl[\exp(i\langle\xi,Z-z_{0}+z_{0}\rangle)\bigr]=\exp\bigl(i\langle\xi,z_{0}\rangle\bigr)\mathbb{E}[\exp(i\langle\xi,Z-z_{0}\rangle)\bigr]\\
@@ -1019,11 +1023,7 @@ covariance structure
 \begin_inset Formula $\lVert\cdot\rVert_{C}$
 \end_inset
 
-, the characteristic function of 
-\begin_inset Formula $Z$
-\end_inset
-
- may be re-written as:
+, the characteristic function may be re-written as:
 \begin_inset Formula 
 \[
 f_{Z}(\xi)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\langle\xi,C\xi\rangle\bigr)=\exp\bigl(i\langle\xi,z_{0}\rangle-\tfrac{1}{2}\left\Vert \xi\right\Vert _{C}^{2}\bigr)\,.
@@ -2729,7 +2729,7 @@ noprefix "false"
 
  is non-singular.
  We will denote such an adjoint by 
-\begin_inset Formula $A^{\logof}$
+\begin_inset Formula $A^{\logof}\colon W\to V$
 \end_inset
 
 , to disambiguate it from the adjoint 
@@ -2748,7 +2748,7 @@ So
  is decomposed as the direct sum 
 \begin_inset Formula 
 \[
-V=M\oplus M^{\perp}\,,\quad M=A^{\logof}V\,,\quad M^{\perp}=A^{-1}\{0\}\,,
+V=M\oplus M^{\perp}\,,\quad M=A^{\logof}W\,,\quad M^{\perp}=A^{-1}\{0\}\,,
 \]
 
 \end_inset
@@ -2808,7 +2808,7 @@ Now consider any
  It has the representation:
 \begin_inset Formula 
 \[
-x=P_{M}(x)+P_{M^{\perp}}(x)=A^{\logof}w+z\,,\quad w\in W\,,\quad z\in V\text{ such that }Az=0\,.
+x=P_{M}(x)+P_{M^{\perp}}(x)=A^{\logof}w+z\,,\quad\text{for some }w\in W,\,z\in V\text{ such that }Az=0\,.
 \]
 
 \end_inset
@@ -3100,9 +3100,6 @@ This formula is easier to remember if we observe that
 
 .
  In an obvious notation:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{alignat}{1}
 \mathbb{E}[X\mid Y] & =\mathbb{E}X+C_{X,Y}\,C_{Y}^{-1}(Y-\mathbb{E}Y)\,.\label{eq:predictor-2}\\
@@ -4003,9 +4000,6 @@ Then, continuing to expand on
 \end_inset
 
 , we have:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{align}
 \widehat{X}_{j} & =\mathbb{E}\bigl[X_{j}\mid\mathcal{F}_{j-1}\bigr]+B_{j}\bigl(Y_{j}-\mathbb{E}\bigl[A_{j}X_{j}+\varepsilon_{j}\mid\mathcal{F}_{j-1}\bigr]\bigr)\nonumber \\
@@ -4341,9 +4335,6 @@ Observe the left term on the third line represents the conditional variance
 \end_inset
 
 , we thus recognize this equality of linear operators:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \widehat{S}_{j}=\Psi_{j}S_{j-1}\Psi_{j}^{*}+Q_{j}\,.
