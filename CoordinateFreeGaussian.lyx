@@ -4545,6 +4545,28 @@ S_{j}=(I-B_{j}A_{j})\widehat{S}_{j}\,.
 
 \end_layout
 
+\begin_layout Section
+Bibliography
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+refname}{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -4664,8 +4686,7 @@ literal "false"
 
 \end_inset
 
-A.
- N.
+Andrey N.
  Kolmogorov.
  Trans.
  Nathan Morrison.
