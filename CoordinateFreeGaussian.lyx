@@ -336,6 +336,71 @@ by differentiating
 
 \end_layout
 
+\begin_layout Standard
+Many elementary works define an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional Gaussian random variable by taking 
+\begin_inset Formula $n$
+\end_inset
+
+ independent one-dimensional standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Having a mean of 
+\begin_inset Formula $0$
+\end_inset
+
+ and a variance of 1.
+\end_layout
+
+\end_inset
+
+ Gaussian variables and assigning each to a coordinate — the resulting (list)
+ vector is then said to be the standard 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional Gaussian.
+ A non-standard Gaussian random variable, i.e.
+ with some non-trivial variance/covariance, would have to defined indirectly
+ by applying a linear transformation to a standard one.
+ But in applications we often just want to specify a random variable to
+ follow a Gaussian law with some variance/covariance.
+ It is awkward to be forced to think that any desired random variable must
+ be driven by some standard Gaussian every time, imagined to be constructed
+ inside whatever the probability space is at hand.
+\end_layout
+
+\begin_layout Standard
+Yet other elementary works define an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional Gaussian through its 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional probability density function! Not only is the formula sometimes
+ an unneeded complication — we do not use it once in this article — that
+ approach totally fails if the Gaussian is 
+\begin_inset Quotes eld
+\end_inset
+
+degenerate
+\begin_inset Quotes erd
+\end_inset
+
+, i.e.
+ its variance-covariance matrix is singular.
+ Not that degeneracy happens in many applications, but requiring separate
+ analytics for that special case surely is inconvenient.
+ 
+\end_layout
+
 \begin_layout Section
 Variance and covariance
 \end_layout
