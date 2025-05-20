@@ -4640,6 +4640,15 @@ Linear Algebra Done Right
 .
  Fourth Edition.
  Springer, 2024.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://linear.axler.net/"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -4845,6 +4854,15 @@ A First Look at Rigorous Probability Theory
 \emph default
 .
  World Scientific, 2003.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://probability.ca/jeff/grprobbook.html"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
