@@ -3245,8 +3245,12 @@ all
 \begin_inset Formula $\Var Z=\Var\bigl(\mathbb{E}[Z\mid Y]\bigr)+\mathbb{E}[\Var(Z\mid Y)\bigr]$
 \end_inset
 
-, substituting 
-\begin_inset Formula $Z=X-g(Y)$
+ for real-valued 
+\begin_inset Formula $Z$
+\end_inset
+
+, and substituting 
+\begin_inset Formula $Z=\langle v,X-g(Y)\rangle$
 \end_inset
 
 .
