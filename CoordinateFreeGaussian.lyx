@@ -4275,9 +4275,9 @@ The latter,
  We may find a simple formula for it, proceeding as follows:
 \begin_inset Formula 
 \begin{align*}
-\langle v,\widehat{S}_{j}\rangle & =\Var\bigl[\langle v,\Psi_{j}X_{j-1}+\mu_{j}+\delta_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+\langle v,\widehat{S}_{j}v\rangle & =\Var\bigl[\langle v,\Psi_{j}X_{j-1}+\mu_{j}+\delta_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
  & =\Var\bigl[\langle v,\Psi_{j}X_{j-1}+\mu_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Var\bigl[\langle v,\delta_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
- & =\Var\bigl[\langle v,\Psi_{j}X_{j-1}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Var\langle v,\delta_{j}\rangle
+ & =\Var\bigl[\langle v,\Psi_{j}X_{j-1}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Var\langle v,\delta_{j}\rangle\,.
 \end{align*}
 
 \end_inset
