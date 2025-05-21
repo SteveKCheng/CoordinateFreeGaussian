@@ -659,8 +659,8 @@ In matrix notation, the adjoint is realized as the transpose operation
 status open
 
 \begin_layout Plain Layout
-Only when using an orthonormal basis, and the vector space is real, not
- complex.
+Only when using an orthonormal basis, and when the vector space is real,
+ not complex.
 \end_layout
 
 \end_inset
@@ -868,7 +868,7 @@ Homomorphism
 \emph on
 endomorphism
 \emph default
- is sometimes heard to refer to a linear operator
+ is sometimes heard to refer to a linear operator.
 \end_layout
 
 \end_inset
