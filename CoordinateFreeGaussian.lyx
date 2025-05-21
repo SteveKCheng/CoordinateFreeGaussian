@@ -1209,7 +1209,7 @@ We distinguish the inner products on
 Applying the definition of the adjoint to the preceding equation:
 \begin_inset Formula 
 \[
-\langle z,v_{k}\rangle_{V}=\langle z,L^{*}e_{k}\rangle_{W}\,,\quad\text{for all \ensuremath{z\in V}},
+\langle z,v_{k}\rangle_{V}=\langle z,L^{*}e_{k}\rangle_{V}\,,\quad\text{for all \ensuremath{z\in V}},
 \]
 
 \end_inset
