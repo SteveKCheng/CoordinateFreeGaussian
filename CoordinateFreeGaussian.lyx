@@ -152,7 +152,7 @@ I have always found that dissatisfying — and partly for that reason had
  underlying vector-space theory is indispensable, in reasoning through situation
 s more complicated than the toy problems of textbooks.
  Without a rigorous theory, geometric intuition might just be figments of
- the mind that occasionally lead us to mistakes.
+ the mind that may lead us astray.
  And, when we want to compute results, invariably programming a computer
  to do so, I think it is useful to understand at a deep level the meanings
  of quantities we want to compute, and to derive the analytics in the most
@@ -161,8 +161,8 @@ s more complicated than the toy problems of textbooks.
 \emph on
 before
 \emph default
- assigning coordinates and indices to work with the ultimate vector and
- matrix representations.
+ assigning indices and coordinates for the ultimate vector and matrix representa
+tions.
 \end_layout
 
 \begin_layout Standard
@@ -747,8 +747,8 @@ not
 status open
 
 \begin_layout Plain Layout
-The rules may be clear to the experts, but perhaps not to the student whom
- the text is intended for!
+The rules may be clear to the expert user, but perhaps not to the student
+ for whom the text is intended!
 \end_layout
 
 \end_inset
@@ -776,8 +776,15 @@ The rules may be clear to the experts, but perhaps not to the student whom
 \begin_inset Formula $\mathbb{E}$
 \end_inset
 
- however, since it is easily defined (component-wise), and its laws as a
- linear operation are clear.
+ however, since it is easily defined (component-wise), and its 
+\begin_inset Quotes eld
+\end_inset
+
+linear
+\begin_inset Quotes erd
+\end_inset
+
+ behavior is obvious and easy to understand.
 \end_layout
 
 \begin_layout Standard
