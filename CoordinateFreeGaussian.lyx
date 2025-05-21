@@ -2719,7 +2719,48 @@ noprefix "false"
 \begin_inset Formula $A$
 \end_inset
 
- itself.
+ itself
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Using the range of 
+\begin_inset Formula $A\colon V\to W$
+\end_inset
+
+ would not even make any sense, since the values of 
+\begin_inset Formula $X$
+\end_inset
+
+ live in 
+\begin_inset Formula $V$
+\end_inset
+
+, not in 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ On the other hand, the adjoint 
+\begin_inset Formula $A^{\logof}\colon W\to V$
+\end_inset
+
+ does have the correct co-domain.
+ (In the matrix formulation of this and similar problems, the author used
+ to often get confused as to which transformation matrix should be transposed:
+ the one that multiplies the covariance matrix on the left, or the one on
+ the right? If we assign 
+\emph on
+distinct
+\emph default
+ vector spaces to the different roles played by the vectors, even if they
+ are the same dimension, then there will always be only one answer that
+ fits — making the formulas a little easier to remember.) 
+\end_layout
+
+\end_inset
+
+.
  Since 
 \begin_inset Formula $X$
 \end_inset
@@ -2742,7 +2783,7 @@ noprefix "false"
 
  is non-singular.
  We will denote such an adjoint by 
-\begin_inset Formula $A^{\logof}\colon W\to V$
+\begin_inset Formula $A^{\logof}$
 \end_inset
 
 , to disambiguate it from the adjoint 
