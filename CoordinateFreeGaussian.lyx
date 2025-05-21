@@ -1208,9 +1208,9 @@ Applying the definition of the adjoint to the preceding equation:
 
 we obtain immediately: 
 \begin_inset Formula 
-\[
-L^{*}e_{k}=v_{k}\,.
-\]
+\begin{equation}
+L^{*}e_{k}=v_{k}\,.\label{eq:adjoint-basis}
+\end{equation}
 
 \end_inset
 
@@ -1578,10 +1578,11 @@ L^{*}e_{k}=C^{-1}w_{k}\,,
 
 \end_inset
 
-from a key result of §
+from eq.
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:linear-transformations"
+LatexCommand vref
+reference "eq:adjoint-basis"
 plural "false"
 caps "false"
 noprefix "false"
