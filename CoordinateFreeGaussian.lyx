@@ -706,9 +706,9 @@ variance-covariance matrix
 \end_inset
 
 .
- In the coordinate-free setting, the covariance of the components are considered
- part of the data for the variance/dispersion of a vector-valued random
- variable.
+ On the other hand, in the coordinate-free setting, the covariances of the
+ components are considered part of the data for the variance/dispersion
+ of a vector-valued random variable.
 \end_layout
 
 \begin_layout Standard
@@ -1116,7 +1116,7 @@ Evidently, the variance operator of
 \end_inset
 
 , which, of course, could have been derived directly from the definition
- of covariance.
+ of variance.
  The transformation of the mean from 
 \begin_inset Formula $\mathbb{E}Z=z_{0}$
 \end_inset
