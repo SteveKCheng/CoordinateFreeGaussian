@@ -3983,7 +3983,7 @@ random variables
 \end_layout
 
 \begin_layout Standard
-As in near the end of §
+Like near the end of §
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:conditional-expectation"
@@ -3993,7 +3993,11 @@ noprefix "false"
 
 \end_inset
 
-, we further introduce the notation:
+, we give a short name, 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+, to the predictive transformation:
 \begin_inset Formula 
 \[
 B_{j}=C_{XY,j}C_{Y,j}^{-1}\,.
