@@ -2370,7 +2370,11 @@ Also,
 \begin_inset Formula $\widehat{\beta}$
 \end_inset
 
-, and has the chi-squared distribution with 
+, and has the 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ (chi-squared) distribution with 
 \begin_inset Formula $n-m$
 \end_inset
 
@@ -2481,7 +2485,7 @@ is a sum of
 \begin_inset Formula $\langle\sigma^{-1}v_{k},Y\rangle_{C^{-1}}$
 \end_inset
 
- has zero mean for 
+ does have zero mean for 
 \begin_inset Formula $k>m$
 \end_inset
 
@@ -4324,7 +4328,7 @@ The first line involves the recurrence relation of
 \end_layout
 
 \begin_layout Standard
-Observe the left term on the third line represents the conditional variance
+Notice that the left term on the third line represents the conditional variance
  of 
 \begin_inset Formula $X_{j-1}$
 \end_inset
@@ -4526,7 +4530,7 @@ noprefix "false"
 \end_inset
 
 .
- Finally, the fifth line comes from a casual observation of eq.
+ Finally, the last line comes from a casual observation of eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
