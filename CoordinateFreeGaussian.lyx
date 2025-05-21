@@ -4766,6 +4766,25 @@ Linear Algebra.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Halmos"
+key "Halmos"
+literal "false"
+
+\end_inset
+
+Paul R.
+ Halmos.
+ 
+\emph on
+Finite-Dimensional Vector Spaces
+\emph default
+.
+ Springer, 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Kálmán"
 key "Kalman"
 literal "false"
