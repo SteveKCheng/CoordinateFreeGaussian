@@ -4948,14 +4948,41 @@ literal "false"
 
 Andrey N.
  Kolmogorov.
- Trans.
- Nathan Morrison.
+ Translated by Nathan Morrison.
  
 \emph on
 Foundations of the Theory of Probability
 \emph default
 .
  Chelsea, 1956.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Labbe"
+key "Labbe"
+literal "false"
+
+\end_inset
+
+Roger R.
+ Labbe Jr.
+ 
+\emph on
+Kalman and Bayesian Filters in Python
+\emph default
+.
+ Last version accessed: July 15, 2024.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
