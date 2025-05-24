@@ -225,7 +225,7 @@ Let
 \begin_inset Formula $V$
 \end_inset
 
- be a real vector space
+ be a real finite-dimensional vector space
 \begin_inset Foot
 status open
 
@@ -408,15 +408,15 @@ Variance and covariance
 
 \begin_layout Standard
 In the following, we further assume that 
-\begin_inset Formula $V=\mathbb{R}^{n}$
+\begin_inset Formula $V$
 \end_inset
 
-, equipped with the standard inner product of 
-\begin_inset Formula $\mathbb{R}^{n}$
+ is a real inner product space.
+ Recall that the inner product 
+\begin_inset Formula $\langle,\rangle$
 \end_inset
 
-.
- Recall that the inner product induces a natural isomorphism between 
+ induces a natural isomorphism between 
 \begin_inset Formula $V$
 \end_inset
 
@@ -424,8 +424,7 @@ In the following, we further assume that
 \begin_inset Formula $V^{*}$
 \end_inset
 
-.
- Every 
+: every 
 \begin_inset Formula $\varphi\in V^{*}$
 \end_inset
 
@@ -477,6 +476,84 @@ This bilinear form returns the covariance of two scalar-valued variables
 .
  Thus it encapsulates the same data as a covariance matrix in the usual
  non-coordinate-free approach to vector-valued random variables.
+\end_layout
+
+\begin_layout Standard
+The definition of covariance clearly depends on the inner product.
+ However, in finite-dimensional spaces, any two inner products can be related
+ by an invertible linear transformation, so changing the inner product only
+ amounts to a 
+\begin_inset Quotes eld
+\end_inset
+
+change of variables
+\begin_inset Quotes erd
+\end_inset
+
+.
+ If 
+\begin_inset Formula $V$
+\end_inset
+
+ is identified with 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ (being set exactly to 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ or being isomorphic to 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+), then the inner product usually taken on 
+\begin_inset Formula $V$
+\end_inset
+
+ is, naturally, the standard inner product
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This matters for matrix and coordinate representations.
+ For example, if the variance operator (defined below) 
+\begin_inset Formula $C$
+\end_inset
+
+ of a 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+-valued random variable 
+\begin_inset Formula $Z$
+\end_inset
+
+ is the identity, under the standard inner product that means the coordinate
+ components 
+\begin_inset Formula $Z_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $k=1,\dotsc,n$
+\end_inset
+
+ have variance 1, and are uncorrelated with each other — rather than weird
+ combinations like 
+\begin_inset Formula $2Z_{1}-5Z_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
