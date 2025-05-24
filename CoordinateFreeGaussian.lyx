@@ -4727,16 +4727,58 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Dropping off the test vectors 
-\begin_inset Formula $v\in V$
+Finally, we observe that 
+\begin_inset Formula $B_{j}A_{j}\widehat{S}_{j}=\widehat{S}_{j}A_{j}^{*}C_{Y}^{-1}A_{j}\widehat{S}_{j}$
 \end_inset
 
- immediately shows:
+ is self-adjoint, which allows us to conclude:
 \begin_inset Formula 
 \[
 S_{j}=(I-B_{j}A_{j})\widehat{S}_{j}\,.
 \]
 
+\end_inset
+
+ (Here we are relying on the fact
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We actually used this fact twice earlier, but did not call out the self-adjointn
+ess hypothesis.
+ It was obvious enough in those instances.
+ 
+\end_layout
+
+\end_inset
+
+ that 
+\begin_inset Formula $\langle Tv,v\rangle=0$
+\end_inset
+
+ for 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ implies 
+\begin_inset Formula $T=0$
+\end_inset
+
+ 
+\emph on
+for self-adjoint
+\emph default
+ 
+\begin_inset Formula $T\colon V\to V$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $T=S-(\widehat{S}-B_{j}A_{j}\widehat{S}_{j})$
+\end_inset
+
+ being self-adjoint is a hypothesis that must be proven first.) 
+\end_layout
 \end_inset
 
 
