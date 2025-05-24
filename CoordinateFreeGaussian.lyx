@@ -4048,13 +4048,52 @@ noprefix "false"
 
 , to the predictive transformation:
 \begin_inset Formula 
-\[
-B_{j}=C_{XY,j}C_{Y,j}^{-1}\,.
-\]
+\begin{equation}
+B_{j}=C_{XY,j}C_{Y,j}^{-1}\,,\label{eq:kalman-gain}
+\end{equation}
 
 \end_inset
 
+which is often called the 
+\emph on
+Kalman gain
+\emph default
 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Because 
+\begin_inset Formula $B_{j}(Y_{j}-\mathbb{E}[Y_{j}\mid\mathcal{F}_{j-1}])$
+\end_inset
+
+ is added to the 
+\begin_inset Quotes eld
+\end_inset
+
+predicted
+\begin_inset Quotes erd
+\end_inset
+
+ value 
+\begin_inset Formula $\mathbb{E}[X_{j}\mid\mathcal{F}_{j-1}]$
+\end_inset
+
+ (from before observing 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+) to obtain the new estimate 
+\begin_inset Formula $\widehat{X}_{j}$
+\end_inset
+
+.
+ See immediately below.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4711,7 +4750,18 @@ The fifth line follows from substituting the definition
 \begin_inset Formula $B_{j}=C_{XY,j}C_{Y,j}^{-1}$
 \end_inset
 
- and simplifying.
+ , from eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-gain"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and simplifying.
  The last line follows from substituting in eq.
  
 \begin_inset CommandInset ref
@@ -4728,14 +4778,14 @@ noprefix "false"
 
 \begin_layout Standard
 Finally, we observe that 
-\begin_inset Formula $B_{j}A_{j}\widehat{S}_{j}=\widehat{S}_{j}A_{j}^{*}C_{Y}^{-1}A_{j}\widehat{S}_{j}$
+\begin_inset Formula $B_{j}A_{j}\widehat{S}_{j}=\widehat{S}_{j}A_{j}^{*}C_{Y,j}^{-1}A_{j}\widehat{S}_{j}$
 \end_inset
 
  is self-adjoint, which allows us to conclude:
 \begin_inset Formula 
-\[
-S_{j}=(I-B_{j}A_{j})\widehat{S}_{j}\,.
-\]
+\begin{equation}
+S_{j}=(I-B_{j}A_{j})\widehat{S}_{j}\,.\label{eq:kalman-cond-variance-est}
+\end{equation}
 
 \end_inset
 
@@ -4779,9 +4829,192 @@ for self-adjoint
 
  being self-adjoint is a hypothesis that must be proven first.) 
 \end_layout
+
+\begin_layout Standard
+In applications, 
+\begin_inset Formula $S_{j}$
 \end_inset
 
+ is often computed not with eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-est"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+, but with a longer formula called the 
+\emph on
+Joseph form
+\emph default
+:
+\begin_inset Formula 
+\begin{align}
+S_{j} & =(I-B_{j}A_{j})\widehat{S}_{j}(I-B_{j}A_{j})^{*}+B_{j}R_{j}B_{j}^{*}\,.\label{eq:kalman-joseph}
+\end{align}
+
+\end_inset
+
+It has the advantage that the terms making it up are self-adjoint (their
+ matrices are symmetric) even in the presence of round-off error in floating-poi
+nt calculations, which is not true of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-est"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ It is also robust against 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+ not being equal exactly to the optimal transformation, due to model error
+ or round-off error, as it does not assume 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+ is the Kalman gain.
+ That is, 
+\begin_inset Formula $B_{j}(\omega)\colon W\to V$
+\end_inset
+
+ can be arbitrary like at the end of §
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:conditional-expectation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, when we compared the optimal predictor against arbitrary predictors.
+ (Note that the definition of 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+ from eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-gain"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, was only used in the last steps in deriving eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-est"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and nowhere else earlier in this section.)
+\end_layout
+
+\begin_layout Standard
+To derive the Joseph form, we cannot assume self-adjointness of 
+\begin_inset Formula $B_{j}A_{j}\widehat{S}_{j}$
+\end_inset
+
+, so we must introduce test vectors 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ and expand fully as covariances
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We could have done this right off the bat and thus derive eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-cond-variance-est"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-joseph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ together in a very concise manner, but the motivation would be hard to
+ see, before seeing the conceptually simpler version first.
+ 
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align*}
+\langle u,S_{j}v\rangle & =\Cov\bigl[\langle u,X_{j}-B_{j}Y_{j}\rangle,\langle v,X_{j}-B_{j}Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\Cov\bigl[\langle u,X_{j}\rangle,\langle v,X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]-\Cov\bigl[\langle u,X_{j}\rangle,\langle v,B_{j}Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & \quad\quad-\Cov\bigl[\langle u,B_{j}Y_{j}\rangle,\langle v,X_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]+\Cov\bigl[\langle u,B_{j}Y_{j}\rangle,\langle v,B_{j}Y_{j}\rangle\mid\mathcal{F}_{j-1}\bigr]\\
+ & =\langle u,\widehat{S}_{j}v\rangle-\langle u,C_{XY,j}B_{j}^{*}v\rangle-\langle v,C_{XY,j}B_{j}^{*}u\rangle+\langle B_{j}^{*}u,C_{Y,j}B_{j}^{*}v\rangle\\
+ & =\langle u,\widehat{S}_{j}v\rangle-\langle u,C_{XY,j}B_{j}^{*}v\rangle-\langle u,B_{j}C_{XY,j}^{*}v\rangle+\langle u,B_{j}C_{Y,j}B_{j}^{*}v\rangle.
+\end{align*}
+
+\end_inset
+
+The above equality holds true for all 
+\begin_inset Formula $u,v$
+\end_inset
+
+, hence this equality of linear operators:
+\begin_inset Formula 
+\begin{align*}
+S_{j} & =\widehat{S}_{j}-C_{XY,j}B_{j}^{*}-B_{j}C_{XY,j}^{*}+B_{j}C_{Y,j}B_{j}^{*}\\
+ & =\widehat{S}_{j}-\widehat{S}_{j}A_{j}^{*}B_{j}^{*}-B_{j}A_{j}\widehat{S}_{j}+B_{j}(A_{j}\widehat{S}_{j}A_{j}^{*}+R_{j})B_{j}^{*}\,,
+\end{align*}
+
+\end_inset
+
+after substituting the equations for 
+\begin_inset Formula $C_{XY,j}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{Y,j}$
+\end_inset
+
+.
+ The last line is equal to the right-hand side of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kalman-joseph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ after re-arranging terms.
 \end_layout
 
 \begin_layout Section
