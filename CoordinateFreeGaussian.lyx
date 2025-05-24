@@ -497,7 +497,8 @@ variance
 \end_inset
 
 .
- It may sometimes be re-cast as a quadratic form with no additional comment:
+ For brevity, it is often re-cast as a quadratic form with no additional
+ comment:
 \begin_inset Formula 
 \[
 \mathcal{C}(u)=\mathcal{C}_{ZZ}(u,u)=\Var\bigl[\langle u,Z\rangle\bigr]\,,\quad u\in V\,.
