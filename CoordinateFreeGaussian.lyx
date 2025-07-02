@@ -4855,7 +4855,7 @@ noprefix "false"
 
 \begin_layout Standard
 Finally, we observe that 
-\begin_inset Formula $B_{j}A_{j}\widehat{S}_{j}=\widehat{S}_{j}A_{j}^{*}C_{Y,j}^{-1}A_{j}\widehat{S}_{j}$
+\begin_inset Formula $B_{j}(A_{j}\widehat{S}_{j})=\widehat{S}_{j}A_{j}^{*}C_{Y,j}^{-1}A_{j}\widehat{S}_{j}$
 \end_inset
 
  is self-adjoint, which allows us to conclude:
@@ -4901,7 +4901,7 @@ for self-adjoint
 
 .
  But 
-\begin_inset Formula $T=S-(\widehat{S}-B_{j}A_{j}\widehat{S}_{j})$
+\begin_inset Formula $T=S_{j}-(\widehat{S}_{j}-B_{j}A_{j}\widehat{S}_{j})$
 \end_inset
 
  being self-adjoint is a hypothesis that must be proven first.) 
@@ -5039,8 +5039,9 @@ noprefix "false"
 
 \end_inset
 
- together in a very concise manner, but the motivation would be hard to
- see, before seeing the conceptually simpler version first.
+ together in a very concise manner.
+ But the calculation would look rather unmotivated without the benefit of
+ seeing the conceptually simpler version first.
  
 \end_layout
 
@@ -5062,7 +5063,7 @@ The above equality holds true for all
 \begin_inset Formula $u,v$
 \end_inset
 
-, hence this equality of linear operators:
+; in turn, this equality of linear operators holds:
 \begin_inset Formula 
 \begin{align*}
 S_{j} & =\widehat{S}_{j}-C_{XY,j}B_{j}^{*}-B_{j}C_{XY,j}^{*}+B_{j}C_{Y,j}B_{j}^{*}\\
@@ -5071,7 +5072,7 @@ S_{j} & =\widehat{S}_{j}-C_{XY,j}B_{j}^{*}-B_{j}C_{XY,j}^{*}+B_{j}C_{Y,j}B_{j}^{
 
 \end_inset
 
-after substituting the equations for 
+after substituting for 
 \begin_inset Formula $C_{XY,j}$
 \end_inset
 
@@ -5080,7 +5081,7 @@ after substituting the equations for
 \end_inset
 
 .
- The last line is equal to the right-hand side of eq.
+ The last expression is equal to the right-hand side of eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5091,7 +5092,7 @@ noprefix "false"
 
 \end_inset
 
- after re-arranging terms.
+, after re-arranging terms.
 \end_layout
 
 \begin_layout Section
