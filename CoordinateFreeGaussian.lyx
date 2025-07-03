@@ -2657,8 +2657,17 @@ In applications to empirical data, the design matrix
 \begin_inset Formula $\beta$
 \end_inset
 
-) is the sample mean.
- Should the sample mean be not included, then the 
+) is the sample mean, or the 
+\begin_inset Quotes eld
+\end_inset
+
+intercept
+\begin_inset Quotes erd
+\end_inset
+
+ if there are independent variables (taking different values on each trial
+ or observation).
+ Should that not be the case, then the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2666,9 +2675,13 @@ residual sum of squares
 \begin_inset Quotes erd
 \end_inset
 
- would not be an unbiased estimator of the variance.
+ would not be an unbiased estimator of the variance of 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
  There is no contradiction to what we are proving here, because the necessary
- hypothesis is already implicitly embedded in our abstract model specification
+ hypothesis is already embedded in our abstract model specification implicitly
  — when we say that 
 \begin_inset Formula $\varepsilon$
 \end_inset
