@@ -2223,8 +2223,8 @@ Application: linear regression models
 \end_layout
 
 \begin_layout Standard
-As an application, consider the linear regression model with data points
- in 
+As an application, consider the linear regression model, operating on data
+ represented as a random point in 
 \begin_inset Formula $V$
 \end_inset
 
@@ -2275,8 +2275,70 @@ We take
 \end_layout
 
 \begin_layout Standard
-Given the data points, i.e.
- realizations of the random variable 
+\begin_inset Formula $Y$
+\end_inset
+
+is called the 
+\emph on
+dependent variable
+\emph default
+ in statistics.
+ Typically, the components of 
+\begin_inset Formula $Y$
+\end_inset
+
+ represent individual data points, coming from experiments or observations.
+ Any independent 
+\begin_inset Quotes eld
+\end_inset
+
+inputs
+\begin_inset Quotes erd
+\end_inset
+
+ or variable that 
+\begin_inset Formula $Y$
+\end_inset
+
+ may or is thought to depend on are encoded in linear transformation 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Its matrix representation is often called the 
+\emph on
+design matrix
+\emph default
+.
+ The standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is separated out from the 
+\begin_inset Quotes eld
+\end_inset
+
+correlation structure
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $C$
+\end_inset
+
+, so that the former can be estimated as part of doing the linear regression,
+ while the latter must simply be assumed as part of the model specification.
+ In most applications, 
+\begin_inset Formula $C=I$
+\end_inset
+
+ is the identity operator, i.e.
+ the observations are assumed to be independent.
+\end_layout
+
+\begin_layout Standard
+Given the observed data, i.e.
+ a realization of the random variable 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -2292,7 +2354,7 @@ Given the data points, i.e.
 \begin_inset Formula $\sigma$
 \end_inset
 
- are unknown and must be estimated from the data.
+ are unknown and must be estimated.
  
 \end_layout
 
@@ -2572,7 +2634,55 @@ is a sum of
 \begin_inset Formula $\langle\sigma^{-1}v_{k},Y\rangle_{C^{-1}}$
 \end_inset
 
- does have zero mean for 
+ does have zero mean
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In applications to empirical data, the design matrix 
+\begin_inset Formula $K$
+\end_inset
+
+ is almost always required to have a column of ones, i.e.
+ the image of 
+\begin_inset Formula $K$
+\end_inset
+
+ spans the vector 
+\begin_inset Formula $(1,\dotsc,1)$
+\end_inset
+
+, so that one of the parameters being estimated (inside the parameter vector
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+) is the sample mean.
+ Should the sample mean be not included, then the 
+\begin_inset Quotes eld
+\end_inset
+
+residual sum of squares
+\begin_inset Quotes erd
+\end_inset
+
+ would not be an unbiased estimator of the variance.
+ There is no contradiction to what we are proving here, because the necessary
+ hypothesis is already implicitly embedded in our abstract model specification
+ — when we say that 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ must have zero mean, that implies 
+\begin_inset Formula $\mathbb{E}Y=K\beta$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ for 
 \begin_inset Formula $k>m$
 \end_inset
 
